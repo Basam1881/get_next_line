@@ -16,6 +16,11 @@ char	*read_me(char *strget, int fd, int *len)
 {
 	strget = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	*len = read(fd, strget, BUFFER_SIZE);
+	if (*len == -1)
+	{
+		free(strget);
+		return (NULL);
+	}
 	strget[*len] = 0;
 	return (strget);
 }
@@ -75,6 +80,8 @@ char	*get_next_line(int fd)
 		strget = read_me(strget, fd, &len);
 		if (!buffer[fd])
 			buffer[fd] = allocate_me_plz(buffer[fd]);
+		if (!strget)
+			return (NULL);
 		if (!*strget && !*buffer[fd])
 		{
 			buffer[fd] = free_me(buffer[fd]);
