@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 15:25:31 by bnaji             #+#    #+#             */
-/*   Updated: 2021/10/20 18:24:17 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/10/24 12:12:07 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_next_line(int fd)
 	char		*strget;
 
 	strline = NULL;
-	if (fd < 0 || fd >= 256)
+	if (fd < 0 || fd >= 256 || BUFFER_SIZE < 0)
 		return (NULL);
 	while (!strline)
 	{
@@ -89,7 +89,6 @@ char	*get_next_line(int fd)
 			break ;
 		}
 		buffer[fd] = ft_strjoin(buffer[fd], strget);
-		strget = free_me(strget);
 		buffer[fd] = return_strline(buffer[fd], &strline, len);
 	}
 	return (strline);
