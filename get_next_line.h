@@ -6,12 +6,13 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:40:26 by bnaji             #+#    #+#             */
-/*   Updated: 2021/10/24 12:09:54 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 03:31:56 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# define BUFFER_SIZE 1
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
